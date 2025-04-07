@@ -7,10 +7,10 @@ const cors = require("cors");
 const xss = require("xss-clean");
 const rateLimiter = require("express-rate-limit");
 
+const app = express();
 app.get("/", (req, res) => {
   res.send("Jobs API");
 });
-const app = express();
 const authenticateUser = require("./middleware/authentication");
 // error handler
 const notFoundMiddleware = require("./middleware/not-found");
