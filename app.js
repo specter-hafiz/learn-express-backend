@@ -30,6 +30,10 @@ app.use(xss());
 // app.use(express.static("./public")); // for serving static files
 
 // extra packages
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocument = YAML.load("./swagger.yaml");
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // routes
 app.use("/api/v1/auth", authRouter);
